@@ -11,7 +11,7 @@ jobs:
       - name: make
         run: |
           pwd
-          echo " make test.txt"
+          echo " make 2 test.txt"
           touch test.txt
           echo "aa" > test.txt
       - name: upload
