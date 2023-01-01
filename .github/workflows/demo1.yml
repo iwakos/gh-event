@@ -8,12 +8,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: make and upload
+      - name: make
         run: |
           pwd
           echo " make test.txt"
           touch test.txt
           echo "aa" > test.txt
+      - name: upload
         uses: actions/upload-artifact@v3
         with:
           name: txt-files
