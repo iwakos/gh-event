@@ -1,14 +1,14 @@
-name: deploy
+name: upload and download
 on:
   push:
     branches:
       - master
   workflow_dispatch:
 jobs:
-  test:
+  create:
     runs-on: ubuntu-latest
     steps:
-      - name: make
+      - name: upload
         run: |
           pwd
           echo " make 2 test.txt"
@@ -19,3 +19,15 @@ jobs:
         with:
           name: txt-files
           path: ./
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download
+        uses: actions/download-artifact@v3
+        with:
+          name: txt-files
+      - name: output txt-files
+        run: |
+          pwd
+          ls
+          cat test.txt
