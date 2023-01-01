@@ -8,7 +8,7 @@ jobs:
   create:
     runs-on: ubuntu-latest
     steps:
-      - name: upload
+      - name: make
         run: |
           pwd
           echo " make 2 test.txt"
@@ -20,6 +20,7 @@ jobs:
           name: txt-files
           path: ./
   download:
+    needs: create
     runs-on: ubuntu-latest
     steps:
       - name: download
